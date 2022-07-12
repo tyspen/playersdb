@@ -71,11 +71,19 @@ FF 2E 00 00 00 00 00 00 00 00 C8 64 54 C7 00 CA
 C0 C1 42 C7 08 C7 C7 00 00 80 00 D2 04 53 5F 50
 00 00 00 04 00 00 00 D9 01 00 00
 
+Of the 170 byte block, these places represent the follow.
+ie. UnkBlock[33] is used to store blood Blood.
 
-#### blob[127:131] is hunger. A Float32 value between 0-1500
+I am still unsure what the developers deal is here. It seems like for some values they use a byte, then uint16, and then unint32 on others. It doesn't make a whole lot of sense.
+
+	Blood [33]
+	Health [106, 107]
+	Hunger [127, 128, 129, 130]
+	Hydration [132, 133, 134, 135]
+	Bleeding [153]
 
 
-## Items begin here:
+## Items begin after the 170 byte block:
 
 #### Items conform to the same protocol as above. The item is prefixed by item name length with follow on item value data.
 
@@ -134,6 +142,7 @@ CA BA A1 2D 47
 | Unk | Unk | Row | Unk   | Col |
 |-----|-----|-----|-------|-----|
 | 00  | 00  | 00  | 00    | 02  | 
+
 
 
 04 50 65 61 72 													// 4 P e a r
